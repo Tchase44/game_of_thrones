@@ -1,5 +1,7 @@
-<h1><%=@person.name%></h1>
-<h3><%=@person.title%></h3>
-<p></p>
-<%= image_tag @person.img_url%>
-
+<div>
+	<h1><%=@person.name%></h1>
+	<h3><%=@person.title%></h3>
+	<%= image_tag @person.img_url%>
+	<p>of house <strong><%= link_to @house.name, house_path(@house)%></strong></p>
+</div>
+<%= link_to "Edit Info", edit_house_character_path(@house,@person)%>

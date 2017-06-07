@@ -17,3 +17,15 @@
   font-family: "thrones";
   src: url('game_of_thrones.ttf') format("truetype");
 }
+.flash{
+	border: 1px solid;
+	text-align: center;
+}
+.alert{
+	color:red;
+	border-color: red;
+}
+.notice{
+	color: green;
+	border-color: green;
+}

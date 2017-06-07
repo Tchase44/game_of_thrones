@@ -1,5 +1,4 @@
-<h1>Edit <%=@person.name%></h1>
-
+<h1>New Character</h1>
 
 <div>
 	<%= form_for [@house,@person] do |f|%>
@@ -13,11 +12,5 @@
 		<%= f.text_field :img_url %><br>
 
 		<%= f.submit %><br>
-		<%end%>
-
-	<%= form_for [@house,@person], method: :delete do |f|%>
-		<%=f.submit "Delete this Person"%>
 	<%end%>
-
-
 </div>

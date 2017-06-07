@@ -14,6 +14,10 @@
     <%=link_to "New House", new_house_path %>
   	<%=link_to "All Characters", characters_path %>
 
+    <%flash.each do |type, messege|%>
+      <p class="flash <%= type %>"><%= messege %></p>
+    <%end%>
+
     <%= yield %>
   </body>
 </html>

@@ -6,8 +6,8 @@
 </div>
 
 <% @house.characters.each do |person| %>
-	<p><%=person.name%> <span><%=person.title%></span></p>
+	<p><%= link_to person.name, house_character_path(@house,person)%></p>
 <%end%>
-
+<%= link_to "Add Character to House", new_house_character_path(@house) %>
 <%= link_to "Edit House", edit_house_path(@house)%>
 

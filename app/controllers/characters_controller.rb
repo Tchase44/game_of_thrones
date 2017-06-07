@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   def index
+    @people = Character.all
   end
 
   def create
@@ -12,6 +13,7 @@ class CharactersController < ApplicationController
   end
 
   def show
+    @person = Character.find(params[:id])
   end
 
   def update

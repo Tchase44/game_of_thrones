@@ -4,21 +4,50 @@ class HousesController < ApplicationController
   end
 
   def create
+    @house = House.new(house_params)
+    if @house.save
+      flash[notice] = "House #{@house.name} Founded!"
+      redirect_to house_path(@house)
+    else
+      flash[:alert] = "New house did not save"
+    end
   end
   
   def new
-  end
-
-  def edit
+    @house = House.new
   end
 
   def show
+    @house = House.find(params[:id])
+  end
+
+  def edit
+    @house = House.find(params[:id])
   end
 
   def update
+    @house = House.find(params[:id])
+    if @house.update(house_params)
+      flash[notice] = "House #{@house.name} updated"
+      redirect_to house_path(@house)
+    else
+      flash[:alert] = "House did NOT update"
+    end
   end
 
   def destroy
+    @house = House.find(params[:id])
+    if @house.destroy
+      flash[:notice] = "The house was Eliminated"
+      redirect_to root_path
+    else
+      flash[:alert] = "This house is resilant...did not delete"
+    end
   end
+
+  private
+    def house_params
+      params.require(:house).permit(:name,:words,:sigil_url,:castle)
+    end
 
 end

@@ -9,6 +9,11 @@
   </head>
 
   <body>
+  	<h1>Game Of Thrones</h1>
+    <%=link_to "All Houses", root_path %>
+    <%=link_to "New House", new_house_path %>
+  	<%=link_to "All Characters", characters_path %>
+
     <%= yield %>
   </body>
 </html>

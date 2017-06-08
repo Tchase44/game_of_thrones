@@ -18,6 +18,7 @@
   src: url('game_of_thrones.ttf') format("truetype");
 }
 .flash{
+	font-family: fantasy;
 	border: 1px solid;
 	text-align: center;
 }
@@ -25,7 +26,68 @@
 	color:red;
 	border-color: red;
 }
+
 .notice{
 	color: green;
 	border-color: green;
 }
+body{
+	font-family: "thrones";
+	text-align:  center;
+	box-sizing: border-box;
+}
+h1{
+	font-size: 300%;
+}
+a{
+	text-decoration: none;
+	color: black;
+	font-size: 120%;
+}
+a:hover{
+	font-weight: 900;
+	text-shadow: 0 0 1px black;
+}
+h3{
+	font-family: fantasy;
+}
+.bannerMen{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+.sigils{
+	width: 25%;
+	margin-top: 10px;
+	margin: 0 10px;
+}
+.sigils img{
+	width: 100%;
+}
+
+
+.form{
+	border: 1px solid black;
+	box-shadow: 0 0 3px black;
+	width: 35%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+form > *{
+	margin: 10px 0;
+}
+.gone{
+	background: darkred;
+	color: white;
+}
+
+
+
+
+
+

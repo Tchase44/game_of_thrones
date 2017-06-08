@@ -1,6 +1,6 @@
 <h1>Houses#edit</h1>
 
-<div>
+<div class="form">
 <%= form_for @house do |f|%>
 	<%= f.label "House Name" %><br>
 	<%= f.text_field :name, required: true %><br>
@@ -18,7 +18,7 @@
 <%end%>
 
 <%= form_for @house, method: :delete do |f|%>
-	<%=f.submit "Destroy House"%>
+	<%=f.submit "Destroy House",class: "gone"%>
 <%end%>
 
 </div>

@@ -1,7 +1,7 @@
 <h1>Edit <%=@person.name%></h1>
 
 
-<div>
+<div class="form">
 	<%= form_for [@house,@person] do |f|%>
 		<%= f.label "Name"%><br>
 		<%= f.text_field :name, required: true %><br>
@@ -16,7 +16,7 @@
 		<%end%>
 
 	<%= form_for [@house,@person], method: :delete do |f|%>
-		<%=f.submit "Delete this Person"%>
+		<%=f.submit "Delete this Person",class: "gone"%>
 	<%end%>
 
 

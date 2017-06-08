@@ -3,6 +3,6 @@
 <div>
 	<%@people.each do|person|%>
 	<%@house = person.house_id%>
-	<p><%= link_to person.name, house_character_path(@house, person)%></p>
+	<h4><%= link_to person.name, house_character_path(@house, person)%></h4>
 	<%end%>
 </div>

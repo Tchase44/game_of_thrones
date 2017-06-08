@@ -1,7 +1,8 @@
-
+<div class="bannerMen">
 <% @houses.each do |house| %>
-	<div>
+	<div class="sigils">
 		<h2><%= link_to house.name, house_path(house) %></h2>
 		<a href="/houses/<%= house.id %>"><%= image_tag  house.sigil_url %></a>
 	</div>
 <%end%>
+</div>

@@ -27,17 +27,17 @@ class HousesController < ApplicationController
 
   def update
     @house = House.find(params[:id])
-    # if @house.user == current_user
+    if @house.user == current_user
       if @house.update(house_params)
         flash[notice] = "House #{@house.name} updated"
         redirect_to house_path(@house)
       else
         flash[:alert] = "House did NOT update"
       end
-    # else
-    #   flash[:alert] = "Only the creator of this house can modify it"
+    else
+      flash[:alert] = "Only the creator of this house can modify it"
       redirect_to house_path(@house)
-    # end
+    end
   end
 
   def destroy

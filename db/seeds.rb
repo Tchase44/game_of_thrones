@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 House.destroy_all
 Character.destroy_all
 
+
 stark = House.create(name:"Stark", words: "Winter is Coming", castle: "Winterfel", sigil_url:"https://s-media-cache-ak0.pinimg.com/originals/b9/8f/2f/b98f2f167fd05ae17b2c4aa7cad6f3ee.jpg")
-baratheon = House.create(name:"Baratheon", words: "Ours is the Fury", castle: "Stormsend", sigil_url:"https://vignette4.wikia.nocookie.net/gameofthrones/images/0/00/House-Baratheon-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170519002924")
-lannister = House.create(name:"Lannister", words: "Hear me Roar", castle: "CasterlyRock", sigil_url:"https://vignette3.wikia.nocookie.net/gotrp/images/c/cb/250px-House_Lannister.png/revision/latest?cb=20140320190146")
-tyrell = House.create(name:"Tyrell", words: "Growing Strong", castle: "High Garden", sigil_url:"https://vignette2.wikia.nocookie.net/gameofthrones/images/c/cf/House-Tyrell-Main-Shield.PNG/revision/latest?cb=20170108163035")
+baratheon = House.create(name:"Baratheon", words: "Ours is the Fury", castle: "Stormsend", sigil_url:"https://computerscience.johncabot.edu/mscaramastra/S2015/CS130-2/Pacitto/game%20of%20thrones/images/fur.png")
+lannister = House.create(name:"Lannister", words: "Hear me Roar", castle: "CasterlyRock", sigil_url:"http://gobmush.wdfiles.com/local--files/house-arms/Arms_House-Lannister.png")
+tyrell = House.create(name:"Tyrell", words: "Growing Strong", castle: "High Garden", sigil_url:"http://gobmush.wdfiles.com/local--files/house-arms/Arms_House-Tyrell.png")
 greyjoy = House.create(name:"Greyjoy", words: "We Do Not Sow", castle: "Pyke", sigil_url:"https://vignette3.wikia.nocookie.net/gameofthrones/images/8/86/House-Greyjoy-Main-Shield.PNG/revision/latest?cb=20170523015836")
 targaryen = House.create(name:"Targaryen", words: "Fire and Blood", castle: "Dragon Stone", sigil_url:"https://vignette2.wikia.nocookie.net/gameofthrones/images/4/43/House-Targaryen-Main-Shield.PNG/revision/latest?cb=20170510235320")
 mormont = House.create(name:"Mormont", words: "Here We Stand", castle: "Bear Island", sigil_url:"https://qph.ec.quoracdn.net/main-qimg-ac4d87ff4f676e0dcef70cb64ef9e62b")

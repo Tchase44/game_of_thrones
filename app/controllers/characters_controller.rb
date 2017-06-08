@@ -50,11 +50,13 @@ class CharactersController < ApplicationController
   def destroy
     @house = House.find(params[:house_id])
     @person = @house.characters.find(params[:id])
-    if @person.destroy
+    if @person.user == current_user
+      @person.destroy
       flash[:notice] = "And now their watch has ended"
       redirect_to house_path(@house)
     else
       flash[:alert] = "Hmm...Hard to kill this one is"
+      redirect_to house_path(@house)
     end
   end
 

@@ -9,13 +9,21 @@
   </head>
 
   <body>
+    <% if !current_user %>
+      <%= link_to "Sign Up", new_user_registration_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to "Log In", new_user_session_path %>
+    <%else%>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    <% end %>
   	<h1>Game Of Thrones</h1>
     <%=link_to "All Houses", root_path %>&nbsp;&nbsp;&nbsp;
     <%=link_to "New House", new_house_path %>&nbsp;&nbsp;&nbsp;
   	<%=link_to "All Characters", characters_path %>
 
     <%flash.each do |type, messege|%>
-      <p class="flash <%= type %>"><%= messege %></p>
+      <p class="<%=type%>"><%=messege%></p>
+     <!--  <p class="notice"><%# notice %></p>
+      <p class="alert"><%# alert %></p> -->
     <%end%>
 
     <%= yield %>

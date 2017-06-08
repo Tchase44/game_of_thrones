@@ -4,7 +4,7 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house = House.new(house_params)
+    @house = Houses.new(house_params.merge(user: current_user))
     if @house.save
       flash[notice] = "House #{@house.name} Founded!"
       redirect_to house_path(@house)
@@ -27,21 +27,31 @@ class HousesController < ApplicationController
 
   def update
     @house = House.find(params[:id])
-    if @house.update(house_params)
-      flash[notice] = "House #{@house.name} updated"
+    # if @house.user == current_user
+      if @house.update(house_params)
+        flash[notice] = "House #{@house.name} updated"
+        redirect_to house_path(@house)
+      else
+        flash[:alert] = "House did NOT update"
+      end
+    # else
+    #   flash[:alert] = "Only the creator of this house can modify it"
       redirect_to house_path(@house)
-    else
-      flash[:alert] = "House did NOT update"
-    end
+    # end
   end
 
   def destroy
     @house = House.find(params[:id])
-    if @house.destroy
-      flash[:notice] = "The house was Eliminated"
-      redirect_to root_path
+    if @house.user == current_user
+      if @house.destroy
+        flash[:notice] = "The house was Eliminated"
+        redirect_to root_path
+      else
+        flash[:alert] = "This house is resilant...did not delete"
+      end
     else
-      flash[:alert] = "This house is resilant...did not delete"
+      flash[:alert] = "Only the creator of this house can destroy it"
+      redirect_to house_path(@house)
     end
   end
 

@@ -10,12 +10,13 @@ class CharactersController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @person = @house.characters.new(char_params)
+    @person = @house.characters.new(char_params.merge(user: current_user))
     if @person.save
       flash[:notice] = "#{@person.name} added to House #{@house.name}"
       redirect_to house_path(@house)
     else
       flash[:alert] = "Could not create character"
+      redirect_to house_path(@house)
     end
   end
   
@@ -38,10 +39,11 @@ class CharactersController < ApplicationController
     @house = House.find(params[:house_id])
     @person = @house.characters.find(params[:id])
     if @person.update(char_params)
-      flash[notice] = "#{@person.name} updated"
-      redirect_to 
+      flash[:notice] = "#{@person.name} updated"
+      redirect_to house_character_path(@house,@person)
     else
       flash[:alert] = "That person did NOT update"
+      redirect_to house_path(@house)
     end
   end
 
@@ -50,7 +52,7 @@ class CharactersController < ApplicationController
     @person = @house.characters.find(params[:id])
     if @person.destroy
       flash[:notice] = "And now their watch has ended"
-      redirect_to house_characters_path
+      redirect_to house_path(@house)
     else
       flash[:alert] = "Hmm...Hard to kill this one is"
     end

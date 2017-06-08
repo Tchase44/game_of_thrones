@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607144320) do
+ActiveRecord::Schema.define(version: 20170608151220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20170607144320) do
     t.string "name"
     t.string "img_url"
     t.bigint "house_id"
+    t.bigint "user_id"
     t.index ["house_id"], name: "index_characters_on_house_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -30,7 +32,28 @@ ActiveRecord::Schema.define(version: 20170607144320) do
     t.string "sigil_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_houses_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "characters", "houses"
+  add_foreign_key "characters", "users"
+  add_foreign_key "houses", "users"
 end

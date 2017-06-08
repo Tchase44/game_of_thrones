@@ -17,17 +17,23 @@
   font-family: "thrones";
   src: url('game_of_thrones.ttf') format("truetype");
 }
-.flash{
+/*.flash{
 	font-family: fantasy;
 	border: 1px solid;
 	text-align: center;
-}
+}*/
 .alert{
+	font-family: fantasy;
+	border: 1px solid;
+	text-align: center;
 	color:red;
 	border-color: red;
 }
 
 .notice{
+	font-family: fantasy;
+	border: 1px solid;
+	text-align: center;
 	color: green;
 	border-color: green;
 }
@@ -46,7 +52,7 @@ a{
 }
 a:hover{
 	font-weight: 900;
-	text-shadow: 0 0 1px black;
+	text-shadow: 1px 1px 1px black;
 }
 h3{
 	font-family: fantasy;
